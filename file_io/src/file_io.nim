@@ -1,6 +1,6 @@
-import json
-import os
-import strformat
+import json      # parseJson + types
+import os        # paramCount, paramStr
+import strformat # & operator
 
 if paramCount() < 1:
   quit &"Usage: file_io [file]"
