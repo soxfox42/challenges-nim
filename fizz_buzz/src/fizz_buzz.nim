@@ -1,5 +1,6 @@
 import std/strutils # parseInt
 
+# Get the maximum value, retrying on bad input.
 var maxValue: int
 while true:
   try:
@@ -11,6 +12,7 @@ while true:
   except ValueError:
     echo "Invalid number."
 
+# Returns the line to be printed for a specific number.
 proc fizzbuzz(n: int): string =
   if n mod 3 == 0 and n mod 5 == 0:
     return "Fizzbuzz!"
@@ -21,5 +23,6 @@ proc fizzbuzz(n: int): string =
   else:
     return $n
 
+# Loop through 1-max, printing fizzbuzz lines.
 for num in 1..maxValue:
   echo fizzbuzz(num)
