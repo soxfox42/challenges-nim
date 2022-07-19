@@ -3,6 +3,6 @@
 
 \- Pdgeorge on the Comp Sci/IT server
 
-`s/or/and/` - that is, why not do both? That makes this challenge particularly interesting, as the Nim standard library contains support for JSON, but not YAML, so I will have to integrate an additional library (or write my own YAML handler, but that's rarely the best way to go.)
+Should I do JSON? YAML? I can't decide! Let's do both. That makes this challenge particularly interesting, as the Nim standard library contains support for JSON, but not YAML, so I will have to integrate an additional library (or write my own YAML handler, but that's rarely the best way to go.)
 
 ## Notes
