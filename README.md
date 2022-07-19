@@ -17,10 +17,15 @@ What? What does that error even mean?
 Anyway, time for take 2.
 
 ## Running
-
-
+Make sure you have Nim 1.6.6 (or higher) installed, then:
+```
+cd [challenge_dir]
+nimble run
+```
 
 ## Challenges
+
+1. [Fizz Buzz](fizz_buzz)
 
 ## Aside: Languages
 Why did I pick two relatively obscure languages? It's quite simple really. I wanted to properly stick to the rule that I had to use a language I hadn't used before. Unfortunately, I've used a lot of languages, though only a small selection make up 98% percent of the programming I do. I just like learning new programming languages. That really narrows down the available languages, but I picked some compiled languages that looked interesting to me.
