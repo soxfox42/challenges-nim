@@ -1,6 +1,6 @@
 import std/json # parseJson + types
 import std/os # paramCount, paramStr
-import std/strformat # & operator
+import std/strformat # unary & operator
 
 if paramCount() < 1:
   quit &"Usage: file_io [file]"

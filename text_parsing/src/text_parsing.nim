@@ -1,4 +1,4 @@
-import std/strformat # & operator
+import std/strformat # unary & operator
 import std/strutils # parseInt
 import std/times # DateTime
 
