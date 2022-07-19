@@ -5,7 +5,7 @@
 
 Yeah, it's fizz buzz. Not much to say really.
 
-# Notes
+## Notes
 - Nim has an operator for conversions to string: `$`. That's a nice shorthand since explicit conversions are required.
 - `echo` always adds a newline, so to avoid that, I had to use `stdout.write`
 - Parentheses around arguments are optional - might lead to messy code? 
