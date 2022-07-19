@@ -7,6 +7,11 @@ type Payment = object
   value: int
 
 proc parsePayment(str: string): Payment =
+  if len(str) != 16:
+    var e: ref ValueError
+    new(e)
+    e.msg = "invalid length"
+    raise e
   let date = str[0..7].parse("yyyyMMdd")
   let value = str[8..15].parseInt()
   return Payment(date: date, value: value)
@@ -25,4 +30,7 @@ while true:
   if payment == "q":
     quit()
   
-  echo payment.parsePayment()
+  try:
+    echo payment.parsePayment()
+  except [ValueError, IndexDefect]:
+    echo "Invalid payment format."
