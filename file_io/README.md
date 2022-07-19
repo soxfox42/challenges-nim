@@ -3,6 +3,7 @@
 
 \- Pdgeorge on the Comp Sci/IT server
 
-Should I do JSON? YAML? I can't decide! Let's do both. That makes this challenge particularly interesting, as the Nim standard library contains support for JSON, but not YAML, so I will have to integrate an additional library (or write my own YAML handler, but that's rarely the best way to go.)
+I originally planned to do YAML support as well, but in the end I decided to keep it simple, and just write a nice JSON version.
 
 ## Notes
+- macros macros macros i love macros. Nim has some really beautiful metaprogramming support, as powerful as Rust's, but far more user friendly. Combine that with user defined operators, and you get JSON literals as a library feature, without any special language support.
