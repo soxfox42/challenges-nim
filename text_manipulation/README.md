@@ -14,3 +14,4 @@ Which word would we decode "ilesmay" to? In my list of 118082 English words, I f
 Anyway, none of that is relevant, just an interesting diversion, since the challenge was just to convert text into Pig Latin, not the other way around.
 
 ## Notes
+- The `result` variable is an interesting idea. Procedures can use the result variable as an output buffer, and it will be returned automatically at the end. I prefer the way Go implements a similar feature though, because it requires the return variable to be explicitly named in the function signature.
