@@ -26,6 +26,8 @@ nimble run
 ## Challenges
 
 1. [Fizz Buzz](fizz_buzz)
+2. [File I/O](file_io)
+3. [Text Parsing](text_parsing)
 
 ## Aside: Languages
 Why did I pick two relatively obscure languages? It's quite simple really. I wanted to properly stick to the rule that I had to use a language I hadn't used before. Unfortunately, I've used a lot of languages, though only a small selection make up 98% percent of the programming I do. I just like learning new programming languages. That really narrows down the available languages, but I picked some compiled languages that looked interesting to me.
