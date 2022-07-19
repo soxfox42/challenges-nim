@@ -1,5 +1,5 @@
-import json      # parseJson + types
-import os        # paramCount, paramStr
+import json # parseJson + types
+import os # paramCount, paramStr
 import strformat # & operator
 
 if paramCount() < 1:
