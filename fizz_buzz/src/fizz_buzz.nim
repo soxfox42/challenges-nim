@@ -1,4 +1,4 @@
-import strutils # parseInt
+import std/strutils # parseInt
 
 # Use stdout rather than echo to avoid newline
 stdout.write "Enter maximum value: "
