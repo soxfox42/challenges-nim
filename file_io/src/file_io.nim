@@ -8,5 +8,8 @@ if paramCount() < 1:
 let fileName = paramStr(1)
 let parsed = parseJson(readFile(fileName))
 let people = parsed["people"]
-for key, value in people.pairs:
-  echo key, value
+for name, data in people.pairs():
+  echo name & ": " & data["Home"].getStr()
+
+people.add("Jason", %* {"Name": "Jason", "Age": 21, "Home": "San Fransico"})
+writeFile(fileName, parsed.pretty())
