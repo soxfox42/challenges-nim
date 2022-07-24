@@ -1,8 +1,7 @@
 import ai
 import illwill
 import std/enumerate
-import std/sequtils
-import std/sugar
+import std/options
 
 type
   GameState = enum
@@ -13,14 +12,14 @@ type
     tb: TerminalBuffer
     board: Board
     column: int
-    cur_player: Player
+    curPlayer: Player
 
-proc newGame(): Game =
+proc initGame(): Game =
   return Game(
     tb: newTerminalBuffer(terminalWidth(), terminalHeight()),
     players: 1,
     column: 0,
-    cur_player: p1,
+    curPlayer: p1,
   )
 
 proc drawStartMenu(game: Game) =
@@ -53,29 +52,11 @@ proc draw(game: Game) =
       of p1: tb.setBackgroundColor(bgRed)
       of p2: tb.setBackgroundColor(bgYellow)
       tb.write(x + 1, 7 - y, if x == game.column: "." else: " ")
-  tb.setBackgroundColor(if game.cur_player == p1: bgRed else: bgYellow)
+  tb.setBackgroundColor(if game.curPlayer == p1: bgRed else: bgYellow)
   tb.write(0, 9, " ")
   tb.setBackgroundColor(bgNone)
   tb.write(1, 9, "'s turn.")
   tb.display()
-
-proc checkWin(game: Game): (Player, seq[(int, int)]) =
-  for x in 0..6:
-    for y in 0..5:
-      let first = game.board[x][y]
-      if first == pNone:
-        continue
-      let lines = [
-        (0..3).toSeq().map(i => (x + i, y)),
-        (0..3).toSeq().map(i => (x, y + i)),
-        (0..3).toSeq().map(i => (x + i, y + i)),
-        (0..3).toSeq().map(i => (x + i, y - i)),
-      ]
-      for line in lines:
-        if line.any(c => c[0] < 0 or c[0] > 6 or c[1] < 0 or c[1] > 5):
-          continue
-        if line.all(c => game.board[c[0]][c[1]] == first):
-          return (first, line)
 
 proc drawWin(tb: var TerminalBuffer, player: Player, wins: seq[(int, int)]) =
   tb.setBackgroundColor(if player == p1: bgRed else: bgYellow)
@@ -87,25 +68,33 @@ proc drawWin(tb: var TerminalBuffer, player: Player, wins: seq[(int, int)]) =
   tb.write(0, 10, "Play again? (y/n)")
 
 proc drop(game: var Game) =
-  var idx = game.board[game.column].find(pNone)
-  if idx != -1:
-    game.board[game.column][idx] = game.cur_player
-    let win = game.checkWin()
+  let moved = game.board.move(game.column, game.curPlayer)
+  if moved.isNone():
+    return
+  game.board = moved.get()
+  let win = game.board.checkWin()
+  if win[0] != pNone:
+    game.draw()
+    drawWin(game.tb, win[0], win[1])
+    game.tb.display()
+    game.state = stEnd
+    return
+  if game.players == 1:
+    game.board = game.board.move(bestMove(game.board), p2).get()
+    let win = game.board.checkWin()
     if win[0] != pNone:
       game.draw()
       drawWin(game.tb, win[0], win[1])
       game.tb.display()
       game.state = stEnd
-      return
-    if game.players == 1:
-      discard # ai
-    else:
-      game.cur_player = if game.cur_player == p1: p2 else: p1
+  else:
+    game.curPlayer = swapPlayer(game.curPlayer)
+  
 
 illwillInit()
 hideCursor()
 
-var game = newGame()
+var game = initGame()
 
 while true:
   let key = getKey()
@@ -127,7 +116,7 @@ while true:
     else: discard
   of stEnd:
     case key:
-    of Key.Y: game = newGame()
+    of Key.Y: game = initGame()
     of Key.N: break
     else: discard
 
