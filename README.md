@@ -14,7 +14,7 @@ Unable to dump stack trace: debug info stripped
 
 What? What does that error even mean?
 
-Anyway, time for take 2.
+Anyway, time for take 2. This time, I'm using [Nim](https://nim-lang.org/).
 
 ## Running
 Make sure you have Nim 1.6.6 (or higher) installed, then:
