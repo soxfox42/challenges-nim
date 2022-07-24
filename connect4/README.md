@@ -1,6 +1,6 @@
 # Connect 4
 
-![running connect4](../images/connect4.png)
+<img src="../images/connect4.png" width="300">
 
 > make a game of connect four. Simple.
 
