@@ -112,7 +112,6 @@ while true:
     of Key.Left: game.column = max(0, game.column - 1)
     of Key.Right: game.column = min(6, game.column + 1)
     of Key.Enter: game.drop()
-    of Key.Q: break
     else: discard
   of stEnd:
     case key:
