@@ -25,12 +25,6 @@ proc checkWin*(board: Board): (Player, seq[(int, int)]) =
         if line.all(c => board[c[0]][c[1]] == first):
           return (first, line)
 
-proc swapPlayer*(player: Player): Player =
-  return case player:
-    of pNone: raise newException(ValueError, "Can't swap player pNone")
-    of p1: p2
-    of p2: p1
-
 # This is kind of a hacky score function.
 proc score(board: Board): int =
   for x in 0..6:

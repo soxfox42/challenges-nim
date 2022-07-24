@@ -88,7 +88,7 @@ proc drop(game: var Game) =
       game.tb.display()
       game.state = stEnd
   else:
-    game.curPlayer = swapPlayer(game.curPlayer)
+    game.curPlayer = if game.curPlayer == p1: p2 else: p1
   
 
 illwillInit()
