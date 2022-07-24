@@ -1,5 +1,7 @@
 # Text Parsing
 
+![running text_parsing](../images/text_parsing.png)
+
 > text parsing: User inputs a string of a certain formatting, convert it to human readable formatting. Input information is the due date for payment alongside how much in cents. YYYYMMDDCCCCCCCC with "CCCCCCCC" having leading 0's. EG: 2022121000004013 -> $40.13 due on 10/12/2022
 
 \- Pdgeorge on the Comp Sci/IT server

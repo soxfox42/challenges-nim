@@ -1,5 +1,7 @@
 # Connect 4
 
+![running connect4](../images/connect4.png)
+
 > make a game of connect four. Simple.
 
 \- Pdgeorge on the Comp Sci/IT server

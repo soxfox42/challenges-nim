@@ -1,5 +1,7 @@
 # Text Manipulation
 
+![running text_manipulation](../images/text_manipulation.png)
+
 > text manipulation: Pig Latin. User inputs text, it gets converted in to pig latin. igpay atinlay isyay otnay ardhay otay ecodeday. ityay ecomesbay ardhay ifyay ethay irstfay etterlay isyay ayay owelvey. (Pig latin is not hard to decode. It becomes hard if the first letter is a vowel)
 
 \- Pdgeorge on the Comp Sci/IT server
