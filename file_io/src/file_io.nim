@@ -25,7 +25,7 @@ for name, data in people.pairs():
   echo name & ": " & data["Home"].getStr()
 
 # Insert new person and write
-people.add("Jason", %* {"Name": "Jason", "Age": 21, "Home": "San Fransico"})
+people.add("Jason", %* {"Name": "Jason", "Age": 21, "Home": "San Francisco"})
 try:
   writeFile(fileName, parsed.pretty())
 except IOError:
